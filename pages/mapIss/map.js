@@ -4,10 +4,10 @@ import Image from "next/image"
 import styles from "./map.module.css"
 import useSWR from "swr"
 
-const token = "pk.eyJ1IjoiYmVucmFtIiwiYSI6ImNra3JlZjdndDBueXEyeHBmazE4OTk2aTcifQ.V4b7Nc7nSktfN73tLpHqLA"
+const token = process.env.NEXT_PUBLIC_TOKEN_MAP
 
 const MapView = ({ issPosition }) => {
-  const { data } = useSWR("http://api.open-notify.org/iss-now.json", {
+  const { data } = useSWR(process.env.NEXT_PUBLIC_END_POINT, {
     refreshInterval: 500,
     initialData: issPosition,
   })
@@ -50,7 +50,7 @@ const MapView = ({ issPosition }) => {
 
 export async function getStaticProps() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
-  const issPosition = await fetcher("http://api.open-notify.org/iss-now.json", fetcher, {
+  const issPosition = await fetcher(process.env.NEXT_PUBLIC_END_POINT, fetcher, {
     refreshInterval: 500,
   })
 
