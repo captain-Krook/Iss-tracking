@@ -20,7 +20,7 @@ npm run dev
 
 ## IMAGE
 
-[capture](public/img/capture.png)
+[capture](https://github.com/captain-Krook/Iss-tracking/blob/main/public/img/capture.png)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
