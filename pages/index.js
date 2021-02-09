@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>My page title</title>
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta>
+        <title>ISS_TRACKING</title>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
       </Head>
       <div className={styles.container}>toto</div>
     </>
