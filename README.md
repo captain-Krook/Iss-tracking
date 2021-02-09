@@ -20,7 +20,13 @@ npm run dev
 
 ## IMAGE
 
-[capture](https://github.com/captain-Krook/Iss-tracking/blob/main/public/img/capture.png)
+![ISS](https://github.com/captain-Krook/Iss-tracking/blob/main/public/img/capture.png)
+
+## Dependencies 
+
+[react-map-gl](http://visgl.github.io/react-map-gl/) 
+
+[SWR](https://swr.vercel.app/)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
