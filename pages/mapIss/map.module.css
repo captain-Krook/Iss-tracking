@@ -1,0 +1,101 @@
+.image {
+    cursor: pointer;
+    
+}
+
+.ripple1 {
+    width: 90px;
+    height: 90px;
+    /* background-color: #eeeeee; */
+    border-radius: 50%;
+    box-shadow: 8px 8px 10px #00000030, -8px -8px 10px #ffffff,
+      inset 8px 8px 10px #00000030, inset -8px -8px 10px #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 4.5s infinite ease-in-out;
+  }
+  
+  .ripple2 {
+    width: 90px;
+    height: 90px;
+    /* background-color: #eeeeee; */
+    border-radius: 50%;
+    box-shadow: 8px 8px 10px #00000030, -8px -8px 10px #ffffff,
+      inset 8px 8px 10px #00000030, inset -8px -8px 10px #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 4.5s 1.5s infinite ease-in-out;
+  }
+  
+  .ripple3 {
+    width: 90px;
+    height: 90px;
+    /* background-color: #eeeeee; */
+    border-radius: 50%;
+    box-shadow: 8px 8px 10px #00000030, -8px -8px 10px #ffffff,
+      inset 8px 8px 10px #00000030, inset -8px -8px 10px #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple 4.5s 3s infinite ease-in-out;
+  }
+  
+  @keyframes ripple {
+    0%,
+    100% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 1;
+    }
+  
+    50% {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+  
+.contentInfos {
+    display:flex;
+    background-color: #666666;
+    width: 50%;
+    flex-direction: column;
+    -webkit-box-shadow: 0px 2px 15px -5px #000000; 
+    box-shadow: 0px 2px 15px -5px #000000;
+    align-content: center;
+    border-radius: 9px;
+    margin: auto;
+    padding: 2em
+  }
+
+
+.contentInfos span {
+    color: white;
+    font-size: 0.8em;
+    font-family: inherit;
+  }
+
+h1.title {
+    color: white;
+    font-size: 1em;
+    margin: auto
+  }
+
+.infosTeam {
+    display: flex;
+    margin-top: 0.5em;
+  }
+
+.tracking {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.5em;
+}
+  

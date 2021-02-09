@@ -1,12 +1,12 @@
-import "tailwindcss/tailwind.css"
-import ReactMapGL, { Marker, FlyToInterpolator } from "react-map-gl"
+import React from "react"
+import ReactMapGL, { Marker } from "react-map-gl"
 import Image from "next/image"
+import styles from "./map.module.css"
 import useSWR from "swr"
-import { IconeAvatar } from ".././../components/IconAvatar/IconAvatar"
 
 const token = "pk.eyJ1IjoiYmVucmFtIiwiYSI6ImNra3JlZjdndDBueXEyeHBmazE4OTk2aTcifQ.V4b7Nc7nSktfN73tLpHqLA"
 
-const MapView = ({ issPosition, team }) => {
+const MapView = ({ issPosition }) => {
   const { data } = useSWR("http://api.open-notify.org/iss-now.json", {
     refreshInterval: 500,
     initialData: issPosition,
@@ -29,9 +29,18 @@ const MapView = ({ issPosition, team }) => {
         scrollZoom={false}
         dragPan={false}
       >
-        <IconeAvatar team={team} />
-        {data.iss_position.latitude}
+        <div className={styles.contentInfos}>
+          <h1 className={styles.title}>INFOS ISS</h1>
+          <div className={styles.tracking}>
+            <span>LAT : {latitude}</span>
+            <span>LONG : {longitude}</span>
+          </div>
+        </div>
+
         <Marker latitude={Number(latitude)} longitude={Number(longitude)}>
+          <div className={styles.ripple1}></div>
+          <div className={styles.ripple2}></div>
+          <div className={styles.ripple3}></div>
           <Image src="/satellite-station.png" alt="iss" width={100} height={100} />
         </Marker>
       </ReactMapGL>
@@ -41,12 +50,11 @@ const MapView = ({ issPosition, team }) => {
 
 export async function getStaticProps() {
   const fetcher = (...args) => fetch(...args).then((res) => res.json())
-  const issProps = await fetcher("http://api.open-notify.org/iss-now.json", fetcher, { refreshInterval: 500 })
-  const getIssTeam = await fetch("http://api.open-notify.org/astros.json")
+  const issPosition = await fetcher("http://api.open-notify.org/iss-now.json", fetcher, {
+    refreshInterval: 500,
+  })
 
-  const issTeam = await getIssTeam.json()
-
-  return { props: { issPosition: issProps, team: issTeam } }
+  return { props: { issPosition: issPosition } }
 }
 
-export default MapView
+export default React.memo(MapView)
